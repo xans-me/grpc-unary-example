@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package dto;
+option go_package = "github.com/xans-me/grpc-unary-example/protobuff";
+
+message Product {
+  string name = 1;
+  string description = 2;
+  float price = 3;
+}
+
+message ProductRequest {
+  Product product = 1;
+}
+
+message ProductResponse {
+  string result = 1;
+  string access_time_in = 2;
+}
+
+service ProductService {
+  // unary
+  rpc AddProduct(ProductRequest) returns (ProductResponse) {};
+}
